@@ -1,0 +1,25 @@
+[{
+  "project": "a1",
+  "className": "a1.Test1",
+  "name": "test1 should x1",
+  "message": "List(\"a\") had size 1 instead of expected size 2",
+  "rerun": "a1/testOnly a1.Test1"
+}, {
+  "project": "a1",
+  "className": "a1.Test1",
+  "name": "test1 should x3",
+  "message": "List(\"b\") was not empty",
+  "rerun": "a1/testOnly a1.Test1"
+}, {
+  "project": "a2",
+  "className": "a2.Test2",
+  "name": "test2 should y",
+  "message": "aaa",
+  "rerun": "a2/testOnly a2.Test2"
+}, {
+  "project": "a2",
+  "className": "a2.Test3",
+  "name": "(It is not a test it is a sbt.testing.SuiteSelector)",
+  "message": "bbb",
+  "rerun": "a2/testOnly a2.Test3"
+}]
