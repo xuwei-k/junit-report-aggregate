@@ -32,7 +32,7 @@ scalacOptions ++= {
 scalacOptions ++= Seq(
   "-deprecation",
 )
-pomExtra := (
+pomExtra :=
   <developers>
   <developer>
     <id>xuwei-k</id>
@@ -44,7 +44,6 @@ pomExtra := (
   <url>git@github.com:xuwei-k/junit-report-aggregate.git</url>
   <connection>scm:git:git@github.com:xuwei-k/junit-report-aggregate.git</connection>
 </scm>
-)
 organization := "com.github.xuwei-k"
 homepage := Some(url("https://github.com/xuwei-k/junit-report-aggregate"))
 licenses := List(
