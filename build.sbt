@@ -4,7 +4,7 @@ enablePlugins(SbtPlugin, ScriptedPlugin)
 name := "junit-report-aggregate"
 publishTo := sonatypePublishToBundle.value
 Compile / unmanagedResources += (LocalRootProject / baseDirectory).value / "LICENSE.txt"
-Compile / packageSrc / mappings ++= (Compile / managedSources).value.map { f =>
+Compile / packageSrc / mappings ++= Compile / managedSources.value.map { f =>
   (f, f.relativeTo((Compile / sourceManaged).value).get.getPath)
 }
 Compile / doc / scalacOptions ++= {
