@@ -45,7 +45,7 @@ object JunitReportAggregatePlugin extends AutoPlugin {
     },
     aggregateJunitReports := {
       val s = state.value
-      val aggregateDir = (aggregateJunitReports / testReportsDirectory).value
+      val aggregateDir = (LocalRootProject / aggregateJunitReports / testReportsDirectory).value
       IO.delete(aggregateDir)
       IO.createDirectory(aggregateDir)
       val log = streams.value.log

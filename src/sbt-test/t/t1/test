@@ -2,3 +2,9 @@
 > aggregateJunitReportsPrint
 > aggregateJunitReportsWrite
 > check
+
+> set aggregateJunitReports / testReportsDirectory := file("target/another-dir")
+> aggregateJunitReports
+$ exists target/another-dir/TEST-a1.Test1.xml
+$ exists target/another-dir/TEST-a2.Test2.xml
+$ exists target/another-dir/TEST-a2.Test3.xml
