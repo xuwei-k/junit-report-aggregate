@@ -24,7 +24,7 @@ object JunitReportAggregatePlugin extends AutoPlugin {
 
   import autoImport.*
 
-  // https://github.com/sbt/sbt/blob/v1.9.4/main/src/main/scala/sbt/plugins/JUnitXmlReportPlugin.scala
+  // https://github.com/sbt/sbt/blob/v1.9.5/main/src/main/scala/sbt/plugins/JUnitXmlReportPlugin.scala
   private[this] val testReportsDirectory = SettingKey[File]("testReportsDirectory")
 
   override def buildSettings: Seq[Def.Setting[?]] = Seq(
