@@ -94,7 +94,13 @@ object JunitReportAggregatePlugin extends AutoPlugin {
     }
   }
 
-  final case class FailureTest(project: String, className: String, name: String, message: String, rerun: String)
+  final case class FailureTest(
+    project: String,
+    className: String,
+    name: String,
+    message: String,
+    rerun: String
+  ) extends FailureTestCompat
 
   object FailureTest {
     implicit val orderInstance: Ordering[FailureTest] = Ordering.by { a =>
@@ -102,7 +108,7 @@ object JunitReportAggregatePlugin extends AutoPlugin {
     }
     implicit val jsonFormatInstance: JsonFormat[FailureTest] = {
       import sjsonnew.BasicJsonProtocol.*
-      caseClass5(FailureTest.apply, FailureTest.unapply)(
+      caseClass5(FailureTest.apply, (_: FailureTest).toTupleOption)(
         "project",
         "className",
         "name",
