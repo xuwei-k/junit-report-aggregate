@@ -32,7 +32,7 @@ scalacOptions ++= {
 scalacOptions ++= Seq(
   "-deprecation",
 )
-crossScalaVersions += "3.3.3"
+crossScalaVersions += "3.3.5"
 pluginCrossBuild / sbtVersion := {
   scalaBinaryVersion.value match {
     case "2.12" =>
