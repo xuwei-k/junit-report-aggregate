@@ -2,7 +2,7 @@ import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
 
 enablePlugins(SbtPlugin, ScriptedPlugin)
 name := "junit-report-aggregate"
-publishTo := sonatypePublishToBundle.value
+publishTo := (if (isSnapshot.value) None else localStaging.value)
 Compile / unmanagedResources += (LocalRootProject / baseDirectory).value / "LICENSE.txt"
 Compile / packageSrc / mappings ++= (Compile / managedSources).value.map { f =>
   (f, f.relativeTo((Compile / sourceManaged).value).get.getPath)
@@ -66,8 +66,8 @@ releaseProcess := Seq[ReleaseStep](
   setReleaseVersion,
   commitReleaseVersion,
   tagRelease,
-  releaseStepCommandAndRemaining("publishSigned"),
-  releaseStepCommandAndRemaining("sonatypeBundleRelease"),
+  releaseStepCommandAndRemaining("+ publishSigned"),
+  releaseStepCommandAndRemaining("sonaRelease"),
   setNextVersion,
   commitNextVersion,
   pushChanges
