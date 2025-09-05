@@ -6,8 +6,12 @@ val common = Def.settings(
 val a1 = project.settings(common)
 val a2 = project.settings(common)
 
-TaskKey[Unit]("check") := {
-  val x1 = parseFromFile(file("expect.json")).get
-  val x2 = parseFromFile(file("failure-tests.json")).get
-  assert(x1 == x2)
-}
+val root = project.in(file("."))
+  .aggregate(a1, a2)
+  .settings(
+    TaskKey[Unit]("check") := {
+      val x1 = parseFromFile(file("expect.json")).get
+      val x2 = parseFromFile(file("failure-tests.json")).get
+      assert(x1 == x2)
+    }
+  )
