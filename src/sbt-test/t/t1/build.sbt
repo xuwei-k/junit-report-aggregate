@@ -6,7 +6,8 @@ val common = Def.settings(
 val a1 = project.settings(common)
 val a2 = project.settings(common)
 
-val root = project.in(file("."))
+val root = project
+  .in(file("."))
   .aggregate(a1, a2)
   .settings(
     TaskKey[Unit]("check") := {
