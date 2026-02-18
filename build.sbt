@@ -25,6 +25,7 @@ scalacOptions ++= {
     Nil
   } else {
     Seq(
+      "-release:8",
       "-Xsource:3",
     )
   }
@@ -32,13 +33,13 @@ scalacOptions ++= {
 scalacOptions ++= Seq(
   "-deprecation",
 )
-crossScalaVersions += "3.7.4"
+crossScalaVersions += "3.8.1"
 pluginCrossBuild / sbtVersion := {
   scalaBinaryVersion.value match {
     case "2.12" =>
       (pluginCrossBuild / sbtVersion).value
     case _ =>
-      "2.0.0-RC8"
+      "2.0.0-RC9"
   }
 }
 pomExtra := (
