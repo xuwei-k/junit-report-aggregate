@@ -16,6 +16,7 @@ object JunitReportAggregatePlugin extends AutoPlugin {
   object autoImport {
     val aggregateJunitReports = taskKey[Seq[FailureTest]]("aggregate junit reports")
     val aggregateJunitReportsPrint = taskKey[String]("print failure test result")
+    @transient
     val aggregateJunitReportsWrite = taskKey[File]("write json file")
     val aggregateJunitReportsOutput = settingKey[File](s"output dir for ${aggregateJunitReportsWrite.key.label}")
   }
