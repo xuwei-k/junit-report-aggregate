@@ -1,5 +1,7 @@
 import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
 
+def sbt2 = "2.0.0-RC11"
+
 enablePlugins(SbtPlugin, ScriptedPlugin)
 name := "junit-report-aggregate"
 publishTo := (if (isSnapshot.value) None else localStaging.value)
@@ -33,13 +35,13 @@ scalacOptions ++= {
 scalacOptions ++= Seq(
   "-deprecation",
 )
-crossScalaVersions += "3.8.2"
+crossScalaVersions += scala_version_from_sbt_version.ScalaVersionFromSbtVersion(sbt2)
 pluginCrossBuild / sbtVersion := {
   scalaBinaryVersion.value match {
     case "2.12" =>
       (pluginCrossBuild / sbtVersion).value
     case _ =>
-      "2.0.0-RC11"
+      sbt2
   }
 }
 pomExtra := (
