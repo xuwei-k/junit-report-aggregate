@@ -78,6 +78,3 @@ releaseProcess := Seq[ReleaseStep](
 description := "sbt plugin for aggregate junit reports"
 scriptedLaunchOpts += "-Dplugin.version=" + version.value
 scriptedBufferLog := false
-sbtPluginPublishLegacyMavenStyle := {
-  sys.env.isDefinedAt("GITHUB_ACTION") || isSnapshot.value
-}
