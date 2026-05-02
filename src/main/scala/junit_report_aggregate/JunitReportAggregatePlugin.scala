@@ -14,10 +14,13 @@ import scala.util.control.NonFatal
 
 object JunitReportAggregatePlugin extends AutoPlugin {
   object autoImport {
+    @transient
     val aggregateJunitReports = taskKey[Seq[FailureTest]]("aggregate junit reports")
+    @transient
     val aggregateJunitReportsPrint = taskKey[String]("print failure test result")
     @transient
     val aggregateJunitReportsWrite = taskKey[File]("write json file")
+    @transient
     val aggregateJunitReportsOutput = settingKey[File](s"output dir for ${aggregateJunitReportsWrite.key.label}")
   }
 
