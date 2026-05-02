@@ -19,7 +19,11 @@ Compile / doc / scalacOptions ++= {
       s"https://github.com/xuwei-k/junit-report-aggregate/blob/${hash}€{FILE_PATH}.scala"
     )
   } else {
-    Nil
+    Seq(
+      "-source-links:github://xuwei-k/junit-report-aggregate",
+      "-revision",
+      hash
+    )
   }
 }
 scalacOptions ++= {
