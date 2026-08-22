@@ -1,6 +1,6 @@
 import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
 
-def sbt1 = "1.12.15"
+def sbt1 = "1.13.0"
 
 enablePlugins(SbtPlugin, ScriptedPlugin)
 name := "junit-report-aggregate"
